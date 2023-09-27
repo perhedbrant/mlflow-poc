@@ -1,0 +1,7 @@
+
+# Venv environments:
+.venv_*
+
+server_storage/
+
+example_projects/data/
