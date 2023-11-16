@@ -72,8 +72,9 @@ logger.info("Plotting and logging performance curves...")
 
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=model.classes_)
 disp.plot()
-plt.savefig("confusion_matrix.png")
-mlflow.log_artifact("confusion_matrix.png")
+cm_fig_filepath = Path(__file__).parent / "output" / "confusion_matrix.png"
+plt.savefig(cm_fig_filepath)
+mlflow.log_artifact(cm_fig_filepath)
 
 signature = mlflow.models.infer_signature(x_train, model.predict(x_train))
 
